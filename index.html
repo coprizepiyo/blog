@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://coprizepiyo.github.io/blog/2017/06/15/Haha/">
+    <link itemprop="mainEntityOfPage" href="https://coprizepiyo.github.io/blog/2017/06/24/Git学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoprizePiyo">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/06/15/Haha/" itemprop="url">Haha</a></h1>
+                <a class="post-title-link" href="/blog/2017/06/24/Git学习笔记/" itemprop="url">Git学习笔记</a></h1>
         
 
         <div class="post-meta">
@@ -284,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T09:30:52+08:00">
-                2017-06-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-24T22:09:05+08:00">
+                2017-06-24
               </time>
             
 
@@ -321,7 +321,23 @@
       
         
           
-            
+            <p>注：以下内容建立在本地已经安装好git</p>
+<p>首先创建远端仓库,比如在github上.然后打开git命令行，输入：</p>
+<pre><code>git clone https://github.com/xxx/xxx.git
+</code></pre><p>设置git用户名、邮箱</p>
+<pre><code>git config --global user.name &quot;xxx&quot;
+git config --global user.email &quot;xxx@xxx.xxx&quot;
+</code></pre><p>查看git状态：</p>
+<pre><code>git status
+</code></pre><p>存入暂存区:</p>
+<pre><code>git add &quot;filename&quot;
+</code></pre><p>提交：</p>
+<pre><code>git commit
+</code></pre><p>此时会弹出文本编辑器,要求输入提交描述,输入完保存退出即可,另可以在提交的时候使用-m指令直接输入描述:</p>
+<pre><code>git commit -m &quot;xxx&quot;
+</code></pre><p>也可以将存入暂存区add步骤省略,实际上是做了缓存只是通过指令-a省略输入add步骤：</p>
+<pre><code>git commit -a -m &quot;xxx&quot;
+</code></pre>
           
         
       
@@ -364,7 +380,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://coprizepiyo.github.io/blog/2017/06/15/Hello-World/">
+    <link itemprop="mainEntityOfPage" href="https://coprizepiyo.github.io/blog/2017/06/20/用CSS画三角形/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoprizePiyo">
@@ -383,7 +399,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2017/06/15/Hello-World/" itemprop="url">Hello-World</a></h1>
+                <a class="post-title-link" href="/blog/2017/06/20/用CSS画三角形/" itemprop="url">用CSS画三角形</a></h1>
         
 
         <div class="post-meta">
@@ -395,8 +411,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T09:30:27+08:00">
-                2017-06-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-20T08:39:10+08:00">
+                2017-06-20
               </time>
             
 
@@ -432,7 +448,111 @@
       
         
           
-            
+            <style type="text/css">
+    .app{
+        width: 100%;
+        height: 100%;
+    }
+
+    .triangle{
+        width:0;
+        height:0;
+        margin: 0 auto;
+        border:50px solid transparent;
+        _animation:fadeio 3s linear 1;
+    }
+
+    @keyframes fadeio{
+        from{transform: rotate(0);}
+        to{transform: rotate(360deg);}
+    }
+
+    _@keyframes fadeio{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+
+    button{
+        font-size:100%;
+        padding: .2em 1.5em;
+        border:none;
+        outline: none;
+        margin:1px;
+    }
+
+    .active {
+        background-color: purple;
+        color: white;
+    }
+
+    .triangle1 {
+        border-left-color: rgb(234, 234, 239);
+    }
+
+    .triangle2 {
+        border-right-color: rgb(234, 234, 239); 
+    }
+
+    .triangle3 {
+        border-top-color: rgb(234, 234, 239);
+    }
+
+    .triangle4 {
+        border-bottom-color: rgb(234, 234, 239);
+    }
+
+    .triangle5 {
+        border-left-color: rgb(234, 234, 239);
+        border-top-color: rgb(234, 234, 239);
+    }
+
+    .triangle6 {
+        border-right-color: rgb(234, 234, 239);
+        border-top-color: rgb(234, 234, 239);
+    }
+
+    .triangle7 {
+        border-left-color: rgb(234, 234, 239);
+        border-bottom-color: rgb(234, 234, 239);
+    }
+
+    .triangle8 {
+        border-right-color: rgb(234, 234, 239);
+        border-bottom-color: rgb(234, 234, 239); 
+    }
+
+</style>
+
+<div class="app"><br>    <div class="triangle"></div><br>    <button>左</button><button>右</button><button>上</button><button>下</button><button>左上</button><button>右上</button><button>左下</button><button>右下</button><br></div>
+
+<script type="text/javascript">
+var aBtn = document.getElementsByTagName("button");
+var eTriangle = document.getElementsByClassName("triangle")[0];
+
+for (var i = 0; i < aBtn.length; i++) {
+    aBtn[i].onclick = (function (j) {
+        return function () {
+            clearSelect();
+            this.setAttribute("class", "active");
+            eTriangle.setAttribute("class", "triangle triangle"+j);
+            eTriangle.style.animation = "";
+            setTimeout(function () {
+                eTriangle.style.animation = "fadeio 0.5s linear 1";
+            }, 0);
+        }            
+    })(i);
+}
+
+function clearSelect () {
+    for (var i = 0; i < aBtn.length; i++) {
+        aBtn[i].setAttribute("class", "");
+    }
+}
+
+eTriangle.setAttribute("class", "triangle triangle1");
+// eTriangle.style.animation = "fadeio 1s linear 1";
+</script>
+
           
         
       
@@ -519,15 +639,6 @@
 
           
 
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/blog/tags/index.html">
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
           
 
         </nav>
