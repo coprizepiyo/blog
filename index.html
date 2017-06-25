@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -282,7 +282,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-24T22:09:05+08:00">
                 2017-06-24
@@ -337,6 +337,39 @@ git config --global user.email &quot;xxx@xxx.xxx&quot;
 <pre><code>git commit -m &quot;xxx&quot;
 </code></pre><p>也可以将存入暂存区add步骤省略,实际上是做了缓存只是通过指令-a省略输入add步骤：</p>
 <pre><code>git commit -a -m &quot;xxx&quot;
+</code></pre><p>对比命令:</p>
+<pre><code>git diff // 对比工作区与缓存区的差异
+git diff --cached // 对比缓存区与版本区的差异也可以使用--staged效果与--cached一样
+git diff master // 对比工作区与版本库的差异
+</code></pre><p>撤销:</p>
+<pre><code>git reset HEAD &lt;filename&gt; // 撤销缓存区
+git checkout -- &lt;filename&gt; // 迁出版本库的版本(如果缓存区有版本则还原缓存区的版本)覆盖工作区版本
+git commit --amend // 撤销上次提交并与暂存区的内容重新一起提交
+</code></pre><p>删除:</p>
+<pre><code>git rm &lt;filename&gt; // 如果工作区文件已删除,则可以使用此命令删除暂存区文件
+git rm -f &lt;filename&gt; // 同时删除工作区和暂存区文件
+git rm -cached &lt;filename&gt; // 删除暂存区文件
+</code></pre><p>恢复:</p>
+<pre><code>git checkout &lt;commitid&gt; &lt;filename&gt; // 从版本库恢复指定版本的指定文件
+git reset --hard &lt;commitid&gt; // 恢复指定版本
+git reset --hard HEAD^ // 恢复到上一个版本
+git reset --hard HEAD~3 // 恢复到前面第三个版本
+</code></pre><p>同步到远程仓库:</p>
+<pre><code>git remote // 查看远程仓库
+git push origin master // 提交到指定仓库的指定分支
+</code></pre><p>解决冲突:</p>
+<pre><code>git fetch // 拉取远端版本不合并
+    git diff master origin/master // 比本地master和远端master区别
+    git merge origin/master // 合并冲突,然后再通过commit提交,再push到远端
+git pull // 直接拉取远端覆盖本地
+</code></pre><p>分支操作:</p>
+<pre><code>git branch // 查看分支
+git branch &lt;branchname&gt; // 创建分支
+git branch -d &lt;branchname&gt; // 删除分支
+git branch --merged // 查看已合并分支
+git branch --no-merged // 查看未合并分支
+git checkout &lt;branchname&gt; // 切换分支
+git checkout -b &lt;branchname&gt; // 创建并切换分支
 </code></pre>
           
         
@@ -409,7 +442,7 @@ git config --global user.email &quot;xxx@xxx.xxx&quot;
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-20T08:39:10+08:00">
                 2017-06-20
@@ -551,6 +584,25 @@ function clearSelect () {
 
 eTriangle.setAttribute("class", "triangle triangle1");
 // eTriangle.style.animation = "fadeio 1s linear 1";
+// window.onload = function () {
+//     alert($)
+// }
+
+function init (docReady) {
+    setTimeout(function () {
+        if ($) {
+            docReady($);
+        } else {
+            init();
+        }
+    }, 0);
+}
+
+init(docReady);
+
+function docReady ($) {
+    // alert($)
+}
 </script>
 
           
@@ -632,13 +684,22 @@ eTriangle.setAttribute("class", "triangle triangle1");
             <div class="site-state-item site-state-posts">
               <a href="/blog/archives/">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -686,7 +747,7 @@ eTriangle.setAttribute("class", "triangle triangle1");
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
